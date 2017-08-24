@@ -7,8 +7,8 @@ from sklearn.preprocessing import LabelBinarizer
 from sklearn.preprocessing import Binarizer
 
 def load_dataset():
-    test_data = pd.read_csv("test.csv")
-    train_data = pd.read_csv("train.csv")
+    test_data = pd.read_csv("../data/test.csv")
+    train_data = pd.read_csv("../data/train.csv")
     test_passenger_id = test_data["PassengerId"]
 
     #Drop unnecessary collumns
@@ -164,7 +164,7 @@ def model(X_train, Y_train, X_valid, Y_valid, X_test, hidden_layer_size,
 
 test_data, train_data, test_passenger_id = load_dataset()
 
-train_x, valid_x, train_y, valid_y = split_data(train_data, fraction = 1)
+train_x, valid_x, train_y, valid_y = split_data(train_data, fraction = .8)
 
 hidden_layer_size = [16, 8]
 
@@ -174,4 +174,4 @@ predictions = predictions.astype(int)
 evaluation = test_passenger_id.to_frame()
 evaluation["Survived"] = predictions
 
-evaluation.to_csv("submission.csv",index=False)
+evaluation.to_csv("../data/submission.csv",index=False)
