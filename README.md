@@ -1,2 +1,2 @@
 # Titanic-Survival-NN
-Machine learnt model to predict whether a passenger survived the titanic based on statistics given
+Machine learnt neural network built for the Kaggle data set for titanic survival using tensorflow. Utilizes dropout and L2 regularization to avoid overfitting.
